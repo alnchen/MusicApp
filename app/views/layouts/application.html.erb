@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>In Yeezus We Trust</title>
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag    'application', media: 'all' %>
+    <%= javascript_include_tag 'application' %>
+  </head>
+
+  <div>
+    <%if current_user.nil? %>
+      <%= link_to "Log In", user_url, method: :post %>
+      <%= link_to "Sign Up", new_user_url, method: :get %>
+    <% else %>
+      <%= button_to "Peace Out", session_url, method: :delete %>
+    <% end  %>
+  </div>
+
+
+  <body>
+    <%= yield %>
+  </body>
+</html>
